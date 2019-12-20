@@ -43,6 +43,7 @@ const UserType = new GraphQLObjectType({
     }
   })
 });
+
 const MutationType = new GraphQLObjectType({
   name: 'Mutation',
   fields: {
@@ -60,6 +61,20 @@ const MutationType = new GraphQLObjectType({
             age: args.age,
             companyId: args.companyId
           })
+          .then(response => {
+            return response.data;
+          });
+      }
+    },
+    deleteUser: {
+      type: UserType,
+      args: {
+        id: { type: new GraphQLNonNull(GraphQLString) }
+      },
+      resolve(parentValue, args) {
+        console.log(args.id);
+        return axios
+          .delete(`http://localhost:3000/users/${args.id}`)
           .then(response => {
             return response.data;
           });
