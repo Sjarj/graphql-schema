@@ -23,6 +23,12 @@
       "firstName": "titi",
       "age": 21,
       "companyId": "3"
+    },
+    {
+      "firstName": "Seb",
+      "age": 27,
+      "companyId": "2",
+      "id": "G4rvCp9"
     }
   ],
   "companies": [
